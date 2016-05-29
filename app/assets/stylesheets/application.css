@@ -13,4 +13,8 @@
  *= require_tree .
  *= require_self
  */
-
+<style>
+#logo {
+    text-transform: uppercase;
+}
+</style>

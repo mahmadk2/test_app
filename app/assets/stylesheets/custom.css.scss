@@ -1,6 +1,10 @@
-$navbar-default-bg:blue;
-
-
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+.jumbotron{
+	background-image: asset-url('rails')
+}
+
+
