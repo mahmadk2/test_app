@@ -1,25 +1,53 @@
-<h1>Lists Of Articles</h1>
-
-<p>
-	<%= link_to "Create New Article", new_article_path %>
-</p>
-
-<table>
-	<tr>
-		<th>Title : </th>
-		<th>Description : </th>
-	</tr>
-	
+<h1 align="center">Lists Of Articles</h1>
 	
 	<% @articles.each do |t| %>
-	<tr>
-		<td><%= t.title %></td>
-		<td><%= t.description %></td>
-		<td><%= link_to 'Edit', edit_article_path(t) %>|</td>
-		<td><%= link_to 'Show', article_path(t) %>|</td>
-		<td><%= link_to 'Destroy', article_path(t) ,  method: :delete, data: {confirm: 'Are you sure?'} %></td>
+   <div class="row">
+	   <div class="col-xs-8 col-xs-offset-2">
+		   <div class="well well-lg">
+			   <div class="article-title">
+				   <%= link_to t.title, article_path(t) %>
+			   </div>
+			   <div claass="article-body">
+				   <%= truncate(t.description, length: 100) %>
+			   </div>
+		     <div class="article-actions">
+               <%= link_to "Edit this article", edit_article_path(t), class:"btn btn-xs btn-primary" %> 
+		       <%= link_to "Dlete this article", article_path(t), method: :delete, data: {confirm:"are you sure to delete this article"}, class:"btn btn-xs btn-danger" %>
+	         </div>
+		   </div>
+	   </div>
+</div>
+
 		
-	</tr>
 	<% end %>
 
-</table>
+			   
+			   
+			   
+			   
+			   
+			   <style>
+.article-actions{
+  border-top: 1px solid #eaeaea;
+	padding: 5px;
+
+}
+	
+	.description {
+		
+		margin-top: 0px;
+	}
+				   
+				   .article-title {
+					   
+					   font-weight: bold;
+					   font-size: 1.5em;
+					   text-transform: uppercase;
+				   } 
+				   .article-body{
+					   
+					   border-top: 1px solid #eaeaea;
+					   padding-top: 15px;
+					   padding-bottom: 15px;
+				   }
+</style>
